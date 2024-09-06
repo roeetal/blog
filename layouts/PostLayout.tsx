@@ -97,10 +97,10 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               <div className="prose dark:prose-invert max-w-none pt-10 pb-8">{children}</div>
               <div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
                 <Link href={discussUrl(path)} rel="nofollow">
-                  Discuss on Twitter
+                  discuss on twitter
                 </Link>
                 {` • `}
-                <Link href={editUrl(filePath)}>View on GitHub</Link>
+                <Link href={editUrl(filePath)}>view on gitHub</Link>
               </div>
               {siteMetadata.comments && (
                 <div
@@ -115,7 +115,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               <div className="divide-gray-200 text-sm leading-5 font-medium xl:col-start-1 xl:row-start-2 xl:divide-y dark:divide-gray-700">
                 {tags && (
                   <div className="py-4 xl:py-8">
-                    <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                    <h2 className="text-xs tracking-wide text-gray-500 dark:text-gray-400">
                       Tags
                     </h2>
                     <div className="flex flex-wrap">
@@ -129,8 +129,8 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   <div className="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
                     {prev && prev.path && (
                       <div>
-                        <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
-                          Previous Article
+                        <h2 className="text-xs tracking-wide text-gray-500 dark:text-gray-400">
+                          previous article
                         </h2>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
                           <Link href={`/${prev.path}`}>{prev.title}</Link>
@@ -139,8 +139,8 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                     )}
                     {next && next.path && (
                       <div>
-                        <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
-                          Next Article
+                        <h2 className="text-xs tracking-wide text-gray-500 dark:text-gray-400">
+                          next article
                         </h2>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
                           <Link href={`/${next.path}`}>{next.title}</Link>
@@ -156,7 +156,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                   aria-label="Back to the blog"
                 >
-                  &larr; Back to the blog
+                  &larr; back to the blog
                 </Link>
               </div>
             </footer>
