@@ -84,7 +84,7 @@ const ThemeSwitch = () => {
                         <div className="mr-2">
                           <Sun />
                         </div>
-                        Light
+                        light
                       </button>
                     )}
                   </Menu.Item>
@@ -100,7 +100,7 @@ const ThemeSwitch = () => {
                         <div className="mr-2">
                           <Moon />
                         </div>
-                        Dark
+                        dark
                       </button>
                     )}
                   </Menu.Item>
@@ -116,7 +116,7 @@ const ThemeSwitch = () => {
                         <div className="mr-2">
                           <Monitor />
                         </div>
-                        System
+                        system
                       </button>
                     )}
                   </Menu.Item>
