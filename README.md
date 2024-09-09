@@ -1,4 +1,5 @@
 ![tailwind-nextjs-banner](/public/static/images/twitter-card.png)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/81ecc9dc-30b7-4ac0-8352-a7c27b329267/deploy-status)](https://app.netlify.com/sites/roeetal/deploys)
 
 # Tailwind Nextjs Starter Blog
 
