@@ -9,6 +9,7 @@ import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import tagData from 'app/tag-data.json'
+import NewsletterForm from 'pliny/ui/NewsletterForm'
 
 interface PaginationProps {
   totalPages: number
@@ -165,6 +166,11 @@ export default function ListLayoutWithTags({
           </div>
         </div>
       </div>
+      {siteMetadata.newsletter?.provider && (
+        <div className="flex items-center justify-center pt-4">
+          <NewsletterForm />
+        </div>
+      )}
     </>
   )
 }
