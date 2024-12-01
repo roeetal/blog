@@ -5,7 +5,7 @@ const siteMetadata = {
   headerTitle: 'just another shitty blog',
   description: 'just another shitty blog',
   language: 'en-us',
-  theme: 'system', // system, dark or light
+  theme: 'light', // system, dark or light
   siteUrl: 'https://roeetal.netlify.app',
   siteRepo: 'https://github.com/roeetal/blog',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
