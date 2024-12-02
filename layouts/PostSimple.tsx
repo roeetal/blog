@@ -8,7 +8,6 @@ import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
-import NewsletterForm from 'pliny/ui/NewsletterForm'
 
 interface LayoutProps {
   content: CoreContent<Blog>
@@ -47,11 +46,6 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
             {siteMetadata.comments && (
               <div className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300" id="comment">
                 <Comments slug={slug} />
-              </div>
-            )}
-            {siteMetadata.newsletter?.provider && (
-              <div className="flex items-center justify-center pt-4">
-                <NewsletterForm />
               </div>
             )}
             <footer>
