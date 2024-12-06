@@ -7,6 +7,13 @@ interface Project {
 
 const projectsData: Project[] = [
   {
+    title: 'in-context learning text-to-sql',
+    description: `In this paper, we look at how in-context learning can improve the state-of-the-art performance of LLMs on the text-to-sql task.`,
+    imgSrc: '/static/images/marlo.png',
+    href: '/blog/marlo',
+  }
+  ,
+  {
     title: 'another crypto bot',
     description: `I got COVID, so I rested in my bed for a week making an automatic crypto trading algorithm based on a statistical arbitrage strategy.`,
     imgSrc: '/static/images/statistical-arbitrage.jpg',
