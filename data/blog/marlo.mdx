@@ -1,0 +1,48 @@
+---
+title: In-Context Learning Text-to-SQL
+date: '2024-12-06'
+tags: ['machine-learning']
+draft: false
+summary: "Language models still need help understanding people's questions."
+layout: PostSimple
+bibliography: references-data.bib
+---
+
+In a paper I co-authored [@mai2024learning], we explored how to improve LLM performance on the
+Text-to-SQL task via in-context learning (ICL). For those unfamiliar with the task,
+the basic idea is to get an intelligent system to automatically generate a SQL query
+to address your question.
+It could be as simple as: *What is the current time?* $\longrightarrow$ `SELECT SYS_DATE();`.
+But can quickly become much more complex, especially for large databases.
+
+The not-so-obvious intuition here is that LLMs are actually quite proficient at generating SQL.
+Once the user's intent is clearly understood, writing the actual query is not too difficult [^1].
+
+We trained an embedding model that helped us select in-context examples that share a similar intent
+to the user's question. Off-the-shelf approaches do a poor job at this—they tend to
+performing entity matching rather than selecting demonstrations that are actually informative.
+
+One major finding from the paper is that greater linguistic diversity across in-context examples
+that share a similar intent can help the LLM understand the intent better.
+And when a new question is asked with an intent similar to that of the selected examples,
+the model is more likely generalize and understand what the user is asking for,
+and as a result generate the correct SQL.
+
+Another awesome outcome of the paper is that I got to present it at the Table Representation
+Learning workshop at NeurIPS 2024 and got to visit Vancouver (thanks Jeff) two years
+after I had left.
+
+[^1]: [Here](https://github.com/prestodb/presto/blob/master/presto-parser/src/main/antlr4/com/facebook/presto/sql/parser/SqlBase.g4)
+is the grammar for Presto SQL, a flexible open-source dialect. It is only 978 short lines,
+which for a billion parameter model is not that much to consume and understand. Digression... at one point I attempted
+to constrain the LLM to only generate tokens that satisfy the grammar. The idea here was to
+force the LLM to only generate tokens that satisfy valid SQL. The challenge, however, is that
+it is not trivial constraining LLM token generations while parsing SQL at the same time. Some LLM tokens
+can contain multiple characters which can span the boundary of two adjacent tokens in the grammar,
+become a far more involved and daunting task than I was hoping to get myself into.
+
+<div className="text-sm">
+*... 401 words in 30 minutes is  words per minute*
+</div>
+
+[^ref]
