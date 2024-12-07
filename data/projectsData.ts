@@ -11,8 +11,13 @@ const projectsData: Project[] = [
     description: `In this paper, we look at how in-context learning can improve the state-of-the-art performance of LLMs on the text-to-sql task.`,
     imgSrc: '/static/images/marlo.png',
     href: '/blog/marlo',
-  }
-  ,
+  },
+  {
+    title: 'predicting aortic valve stenosis',
+    description: `The first deep learning approach to grade aortic stenosis in cardiac ultrasounds, which is vital in point-of-care settings.`,
+    imgSrc: '/static/images/aortic-stenosis.png',
+    href: 'https://link.springer.com/chapter/10.1007/978-3-030-87583-1_20',
+  },
   {
     title: 'another crypto bot',
     description: `I got COVID, so I rested in my bed for a week making an automatic crypto trading algorithm based on a statistical arbitrage strategy.`,
