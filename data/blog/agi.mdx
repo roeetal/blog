@@ -1,0 +1,101 @@
+---
+title: AGI?
+date: '2024-12-21'
+tags: ['machine learning']
+draft: false
+summary: 'A sobering take on the AGI hype.'
+layout: PostSimple
+---
+
+Much of the way the US (and really many parts of the world) works is by fueling itself on sheer optimism.
+It is a strong force, perhaps less so for determining future outcomes than for mobilizing social change.
+A strong force nonetheless.
+
+Research leading up to the powerful AI models we have to day has been a long time in the making.
+We already had extremely powerful and frighteningly impressive models before ChatGPT became a verb.
+What ChatGPT achieved was bringing closer together the general population and the scientific ML community.
+It did so, not by surpassing specific benchmarks, but by *communicating* well with ordinary people[^1].
+The outcome of this seemingly jaw-dropping experience for many people,
+not to detract from the groundbreaking achievements that have lead us here,
+is the widely held belief that soon we will have artificial general intelligence at our fingertips.
+And naturally, that means some people will become unimaginably wealthy, others unemployed,
+humanity will face an existential crisis, and anarchy will ensue.
+
+But really, how close are we to achieving AGI? And what are the implications of this momentous event?
+
+### *What is intelligence?*
+
+We should probably begin by aligning ourselves on the definition of intelligence.
+I'll begin with an analogy.
+Should we expect a doctor to be better than some random kid in high school at a card game no one has ever played before?
+There are three components to consider here.
+What does the doctor *already know* that can give them an advantage at this specific game?
+What about the kid?
+And what about the game itself will lead us to believe either the doctor or the kid will be better?
+Now if we were able to guarantee that nothing the doctor or kid already know or are good at can help either win the game,
+who would the winner would be?
+Maybe whoever is more intelligent? 
+
+To breath some formalism into this silly analogy: each of us has some skill, knowledge, or lived experiences that imply something about our
+ability to do a certain task (todays AI models are evaluated this way, on very task-specific benchmarks).
+But skill does not necessarily translate into intelligence.
+Intelligence calls for abilities beyond that which we already know or are good at.
+It demands the ability to think on your feet, generalize to all kinds of new tasks or challenges that you have never seen before, and to be able to solve them quickly.
+
+So how do we measure intelligence?
+Back to our analogy, it is unlikely we can find a game which does not favour either the doctor or the kid.
+That is because our prior knowledge or skills will always help us perform on any measurable task, even if we cannot account for their impact.
+What we can do then, rather then curating the perfect "IQ" test, is to measure ability across a broad range of tasks with the hope
+that the impact of prior knowledge or skill gets averaged away. The doctor might have an advantage on some tasks while the kid on others.
+
+### *What is artificial general intelligence?*
+
+In the context of AI, as defined by the creators of the [ARC-AGI competition](https://arcprize.org/arc), the intelligence of an AI system is
+''a measure of its skill-acquisition efficiency over a scope of tasks, with respect to priors, experience, and generalization difficulty.''.
+
+What that means is that a machine learning system is considered intelligent if it can ''efficiently acquire new skills outside of its training data''.
+It can solve new challenges it was not designed (either explicitly or inadvertently) to solve.
+
+I like this definition, its holds a fair high-enough bar for my liking. If you disagree with it, I've enabled comments on this blog via GitHub
+and would love to here why.
+
+### *How close are we to AGI?*
+
+There are a lot of challenges measuring just how much an AI system knows or how good it is at certain tasks.
+It is often the case that a model performs really well on a benchmark, only to discover later that data from the benchmark leaked into its
+training. This is analogous to student getting a sneak peak of an exam while studying for it.
+Academic benchmarks are also very well defined and often lack the kind of nuance we, as humans, deal with easily on a day-to-day basis.
+It is not so simple to extrapolate a model's performance on a certain benchmark to the real world or related yet different problems.
+It is also really difficult and expensive creating new, good benchmarks, so we cannot simply evaluate models across every task imaginable.
+
+That begin said, today's state-of-the-art models are undoubtedly impressive.
+They can perform math better than most american high schoolers on the SATs and would likely pass the bar if allowed to sit it.
+But they were also explicitly designed to excel at those tests.
+
+The question is, really, how well do they perform on tasks that their prognosticates did not even anticipate they would be used for?
+Can today's best multi-modal models correctly tell me which of three objects it has never seen before is softer?
+
+Given the silly mistakes today's models are capable of making, mistakes that would be inconceivable for any human to make,
+I'd argue we are not there yet. Although, I think we are getting closer and closer each day.
+
+Consider Plato's allegory of the cave: people are stuck in a cave, all they can hear are sounds and names of objects and all they can see
+are 2D projections of the objects' shadows on the wall. How much do those people really know of those objects?
+Our best models are currently trained this way. Most models are only trained on text. Some also include images in their training,
+and maybe video if they are lucky. Still, they do not get any information from sound or touch like we, as humans, do.
+As the adage goes: "a picture is worth a thousand words", yet during training we each picture is usually paired with a single sentence,
+with the hope that the model will infer all there is to know and understand in the image. This is unrealistic.
+
+There is a long way to go in terms of training models on more data analogous to the way humans acquire information.
+And tons of innovation will be required for this to even be feasible.
+But perhaps there is an argument to made whether human-level knowledge and understanding of our physical world is not required for a model
+to be considered intelligent.
+I don't by it, but if you were to relax our definition above in terms of "scope of tasks", "priors", and "experience" based on the modalities
+we are currently able to train models, you could probably get away with arguing AGI is closer than we think.
+
+[^1]: Using user feedback, ChatGPT learned to generate responses that people preferred using a method know as [Reinforcement Learning from Human Feedback](https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback).
+This was as much a reinforcement and deep learning innovation as it was a product innovation.
+Slightly altering the way a model generates responses can have profound and far-reaching social implications.
+
+<div className="text-sm">
+*... 1226 words in 30 minutes is 8.1 words per minute*
+</div>
