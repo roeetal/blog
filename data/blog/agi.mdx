@@ -5,16 +5,17 @@ tags: ['machine learning']
 draft: false
 summary: 'A sobering take on the AGI hype.'
 layout: PostSimple
+bibliography: references-data.bib
 ---
 
 Much of the way the US (and really many parts of the world) works is by fueling itself on sheer optimism.
 It is a strong force, perhaps less so for determining future outcomes than for mobilizing social change.
 A strong force nonetheless.
 
-Research leading up to the powerful AI models we have to day has been a long time in the making.
+Research leading up to the powerful AI models we have to day has been a long time in the making[^1].
 We already had extremely powerful and frighteningly impressive models before ChatGPT became a verb.
 What ChatGPT achieved was bringing closer together the general population and the scientific ML community.
-It did so, not by surpassing specific benchmarks, but by *communicating* well with ordinary people[^1].
+It did so, not by surpassing specific benchmarks, but by *communicating* well with ordinary people[^2].
 The outcome of this seemingly jaw-dropping experience for many people,
 not to detract from the groundbreaking achievements that have lead us here,
 is the widely held belief that soon we will have artificial general intelligence at our fingertips.
@@ -33,11 +34,11 @@ What does the doctor *already know* that can give them an advantage at this spec
 What about the kid?
 And what about the game itself will lead us to believe either the doctor or the kid will be better?
 Now if we were able to guarantee that nothing the doctor or kid already know or are good at can help either win the game,
-who would the winner would be?
+who would the winner be?
 Maybe whoever is more intelligent? 
 
 To breath some formalism into this silly analogy: each of us has some skill, knowledge, or lived experiences that imply something about our
-ability to do a certain task (todays AI models are evaluated this way, on very task-specific benchmarks).
+ability to do a certain task (todays AI models are evaluated this way, on very task-specific benchmarks[^3]).
 But skill does not necessarily translate into intelligence.
 Intelligence calls for abilities beyond that which we already know or are good at.
 It demands the ability to think on your feet, generalize to all kinds of new tasks or challenges that you have never seen before, and to be able to solve them quickly.
@@ -45,8 +46,11 @@ It demands the ability to think on your feet, generalize to all kinds of new tas
 So how do we measure intelligence?
 Back to our analogy, it is unlikely we can find a game which does not favour either the doctor or the kid.
 That is because our prior knowledge or skills will always help us perform on any measurable task, even if we cannot account for their impact.
-What we can do then, rather then curating the perfect "IQ" test, is to measure ability across a broad range of tasks with the hope
-that the impact of prior knowledge or skill gets averaged away. The doctor might have an advantage on some tasks while the kid on others.
+What we can do then, rather then curating the perfect "IQ" test, is to measure ability across a broad range of unseen tasks with the hope
+that the impact of prior knowledge or skill gets averaged away.
+The doctor might have an advantage on some tasks while the kid on others.
+We might also want to restrict the amount of time (or compute) alloted for these tests, otherwise new skills or knowledge can simply be developed
+and we are back to where we started.
 
 ### *What is artificial general intelligence?*
 
@@ -55,47 +59,133 @@ In the context of AI, as defined by the creators of the [ARC-AGI competition](ht
 
 What that means is that a machine learning system is considered intelligent if it can ''efficiently acquire new skills outside of its training data''.
 It can solve new challenges it was not designed (either explicitly or inadvertently) to solve.
-
-I like this definition, its holds a fair high-enough bar for my liking. If you disagree with it, I've enabled comments on this blog via GitHub
-and would love to here why.
-
-### *How close are we to AGI?*
+I like this definition, it holds a fair and high-enough bar to my liking—essentially, the kind of bar I would need to get into an autonomous car in South Africa.
 
 There are a lot of challenges measuring just how much an AI system knows or how good it is at certain tasks.
 It is often the case that a model performs really well on a benchmark, only to discover later that data from the benchmark leaked into its
-training. This is analogous to student getting a sneak peak of an exam while studying for it.
+training. This is analogous to student getting a sneak peak on an exam while studying for it.
 Academic benchmarks are also very well defined and often lack the kind of nuance we, as humans, deal with easily on a day-to-day basis.
 It is not so simple to extrapolate a model's performance on a certain benchmark to the real world or related yet different problems.
 It is also really difficult and expensive creating new, good benchmarks, so we cannot simply evaluate models across every task imaginable.
 
-That begin said, today's state-of-the-art models are undoubtedly impressive.
+That being said, today's state-of-the-art models are undoubtedly impressive.
 They can perform math better than most american high schoolers on the SATs and would likely pass the bar if allowed to sit it.
-But they were also explicitly designed to excel at those tests.
+But they were also explicitly designed to excel at those tests, and consumed unimaginable resources in the process.
+The question is, really, how well do they perform on tasks that their prognosticators did not even anticipate they would be used for?
+This is why some smart folks started the ARC challenge I mentioned above, but even it has its own limitations.
 
-The question is, really, how well do they perform on tasks that their prognosticates did not even anticipate they would be used for?
-Can today's best multi-modal models correctly tell me which of three objects it has never seen before is softer?
+### *How close are we to AGI?*
 
 Given the silly mistakes today's models are capable of making, mistakes that would be inconceivable for any human to make,
-I'd argue we are not there yet. Although, I think we are getting closer and closer each day.
+I'd argue we are not there just yet. Although, I think we are getting closer and closer each day.
+Even o3, OpenAIs fresh new reasoning model which just set a new record on the ARC challenge, is unable to near human performance,
+despite consuming the equivalent of $N$ water bottles to solve each problem (i.e. a lot of test-time compute).
 
 Consider Plato's allegory of the cave: people are stuck in a cave, all they can hear are sounds and names of objects and all they can see
 are 2D projections of the objects' shadows on the wall. How much do those people really know of those objects?
 Our best models are currently trained this way. Most models are only trained on text. Some also include images in their training,
 and maybe video if they are lucky. Still, they do not get any information from sound or touch like we, as humans, do.
-As the adage goes: "a picture is worth a thousand words", yet during training we each picture is usually paired with a single sentence,
+As the adage goes: "a picture is worth a thousand words", yet during training each picture is usually paired with only a single sentence,
 with the hope that the model will infer all there is to know and understand in the image. This is unrealistic.
 
-There is a long way to go in terms of training models on more data analogous to the way humans acquire information.
-And tons of innovation will be required for this to even be feasible.
-But perhaps there is an argument to made whether human-level knowledge and understanding of our physical world is not required for a model
-to be considered intelligent.
-I don't by it, but if you were to relax our definition above in terms of "scope of tasks", "priors", and "experience" based on the modalities
-we are currently able to train models, you could probably get away with arguing AGI is closer than we think.
+While we have used up most of the useful, public internet to train our best models, it is unclear whether new information
+from additional modalities (such as video or sound) will even help models reason better.
+They will likely learn better representations of the physical world, but it remains to be seen whether
+additional information of this kind is a prerequisite for complex reasoning and the ability to generalize on-the-fly.
 
-[^1]: Using user feedback, ChatGPT learned to generate responses that people preferred using a method know as [Reinforcement Learning from Human Feedback](https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback).
+We might be able to access valuable information beyond what is publicly accessible on the internet.
+One idea is decentralized, privacy-centric training, but this would require great collective social change,
+since nobody wants to give away access to their proprietary data, even if it is for a great cause.
+
+So beyond simply scaling up the information, knowledge, and data these models consume, what else can we do?
+There is a lot of research currently focused on gathering learning signals from direct user feedback or by
+allowing models to interact directly in complex environments.
+Perhaps if we can gather enough of these useful signals across a broad range of complex environments,
+we will be able to train intelligent models with the architectures and algorithms currently at our disposal.
+
+But maybe we need to look further to biology. From a reinforcement learning perspective, humans use a complex
+reward function to learn to navigate this world. We consider survival, our emotions, reproduction... 
+LLMs simply learn to predict the next (or a missing) token—to generate text that is either exactly the same or
+similar to examples we have written down. Perhaps with sufficient scale and assuming we had enough examples
+demonstrating all kinds of thinking and reasoning,
+we could train models that could memorize and emulate enough knowledge and skill to be able to generalize to any new task.
+But that is not really how we, as humans, do it. Our brains have evolved into an awesome, structurally complex organ
+that does not need to grow larger and larger to do more.
+I anticipate further architectural and algorithmic advances will be necessary before we finally reach AGI.
+There are already some awesome ideas focused on using sparsity as a mechanism to facilitate scale
+while compressing function into smaller, modular sub-components of the model.
+This more analogous to how our brain operates, and
+I'm very excited to see where this line of research takes us.
+
+Power and wealth is, and will always be, the hubris of humanity.
+And for that reason, I anticipate people will adopt a relaxed version of our definition above
+in an attempt to be the first creators of AGI.
+Nevertheless, we have come a long way, and our progress is only accelerating.
+
+[^1]: Here is a cursory, and most definitely incomplete, chronology of research leading up to the awesome
+LLMs we have today. We begin with a sequence of tokens (words or sub-words) and would like to learn complex
+relationship or patterns in the data that may have long-range dependencies
+(i.e. the first word provides useful information for understanding the last word),
+to be able to solve complex problems like translating sentences or writing poems.
+Conceptually, we model this process as a residual stream of information.
+Like a highway with fixed capacity, our model represents its understanding of the text in activations of a relatively low-dimensional vector space.
+And like cars getting on or off the highway, it adds or removes information from the residual stream as it processes tokens.
+@sutskever2014sequencesequencelearningneural show that [LSTMs](https://en.wikipedia.org/wiki/Long_short-term_memory),
+a type of [recurrent neural network (RNN)](https://en.wikipedia.org/wiki/Recurrent_neural_network)
+which store this information in the residual stream by processing each token, one at a time, in order,
+do well on the machine translation task, and that scaling up data has enormous potential.
+The problem with LSTMs though, is that they update the residual stream locally—they do not look ahead and see what
+words are coming up, or look behind to remember what words they processed.
+This present a major bottleneck for getting the right information in and out of the residual stream,
+without the fortune of hindsight or foresight.
+Encoding an english sentence by processing it both front-to-back and back-to-front simultaneously,
+only helped so much. But there were still stability issues during training and challenges with capturing long-range dependencies
+that needed to be solved.
+But then our brilliant friends @vaswani2023attentionneed proposed the transformer, solved
+these issues using something called attention, which apparently was all we needed. The key idea here,
+is that at every token, the model can look back on any previous token when updating the residual stream.
+This solves the hindsight problem and allowed for much better long-range dependencies. We call this setting
+decoder-only or auto-regressive, because the model can only look behind, and is the mechanism ChatGPT uses to talk to you.
+Transformers can also be used to encode text by looking at every token in the sequence at any point in the sequence, even ahead,
+which solves the foresight challenge.
+Transformers solved a lot of the stability (vanishing/exploding gradients), long-range dependencies, and simply
+are able to learn better representations of the text. But this came with quadratic training costs in the length of the sequence.
+Their results showed state-of-the-art performance on the machine translation task, as well as good transfer to new tasks.
+Given these results, a scaling race began both in terms of model size [@radford2019language] and in the unification of fine-tuning tasks into a single framework[@raffel2023exploringlimitstransferlearning],
+and produced many interesting outcomes. LLMs truly learnt good representations of text, first by pre-training on giant corpora by
+learning to represent the internet as a probability distribution over text in an unsupervised way, and then by
+honing their skills on specific tasks. They repeatedly set new PRs on the benchmarks, and were able to transfer to new tasks without any explicit supervision reasonably well,
+and if given examples, could perform convincingly well on entirely new challenges [@brown2020languagemodelsfewshotlearners].
+At first, it was unclear whether it made more sense to fine-tune your own model for your specific task,
+or to pick the best off-the-shelf model and instruct it how to solve your task without any actual training [@ouyang2022traininglanguagemodelsfollow; @wei2022finetunedlanguagemodelszeroshot].
+A phase change was observed around 10-100B parameters in size where models models demonstrated emergent abilities such as complex reasoning,
+reasoning with knowledge, and out-of-distribution robustness, which smaller models simply could not do even if trained on the same data.
+Despite the vast knowledge and reasoning abilities that resulted from all this scaling these models still acted funny at times.
+But then, ChatGPT and later works revealed that reinforcement learning not only helps models to be reject silly questions
+beyond their knowledge scope, but also can be used to guide them how to reason better.
+With most of the internet exhausted, the question becomes, where to scale next? Different modalities (e.g. video, audio) will likely help
+models develop more physically accurate and realistic representations of the world, but it remains unclear whether a more accurate world model
+will help them reason better.
+
+[^2]: Using user feedback, ChatGPT learned to generate responses that people preferred using a method know as [Reinforcement Learning from Human Feedback](https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback).
 This was as much a reinforcement and deep learning innovation as it was a product innovation.
 Slightly altering the way a model generates responses can have profound and far-reaching social implications.
+The way this works is by using your language model to initialize a reward model and a policy.
+The reward model learns human preferences directly from their feedback, and is used in a reinforcement learning paradigm to
+update your policy (basically just your unaligned language model) by rewarding generations that the reward model thinks humans would prefer.
+Generally, this technique is unstable and difficult, but a lot of research progress has been made to significantly simplify and streamline
+the alignment process, such as [Direct Preference Optimization (DPO)](https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback#Direct_preference_optimization).
+Something interesting that has been observed, is that this mechanism can help "unlock" knowledge or abilities
+you might otherwise think the model does not possess.
+
+[^3]: If you are curious, here are the most common benchmarks used to evaluate LLMs: (1) [Measuring Massive Multitask Language Understanding](https://en.wikipedia.org/wiki/MMLU)
+(MMLU) measures mostly english knowledge; (2) [C-Eval](https://github.com/hkust-nlp/ceval) is a comprehensive Chinese evaluation suite;
+(3) [Grade School Math](https://github.com/openai/grade-school-math) (GSM8K) and [Big-Bench Hard](https://github.com/suzgunmirac/BIG-Bench-Hard) (BBH)
+are used to evaluate reasoning; (4) [Human-Eval](https://github.com/openai/human-eval) and [Most Basic Python Problems](https://github.com/google-research/google-research/tree/master/mbpp) (MBPP)
+evaluate coding ability; and [MATH](https://github.com/hendrycks/math), as the name describes, is a dataset used to measure mathematical problem solving.
+It has been observed that pre-training on code helps with reasoning, so in some sense the coding benchmarks
+can also tell you a think or two about the models reasoning abilities.
 
 <div className="text-sm">
-*... 1226 words in 30 minutes is 8.1 words per minute*
+*... 2569 words in 317 minutes is 8.1 words per minute*
 </div>
