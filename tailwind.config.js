@@ -4,27 +4,6 @@
 module.exports = {
   theme: {
     extend: {
-// <<<<<<< HEAD
-// =======
-//       lineHeight: {
-//         11: '2.75rem',
-//         12: '3rem',
-//         13: '3.25rem',
-//         14: '3.5rem',
-//       },
-//       fontFamily: {
-//         sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
-//       },
-//       colors: {
-//         primary: colors.stone,
-//         gray: colors.gray,
-//       },
-//       zIndex: {
-//         60: '60',
-//         70: '70',
-//         80: '80',
-//       },
-// >>>>>>> eea0083 (fix: color, typo)
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {
@@ -50,7 +29,7 @@ module.exports = {
         invert: {
           css: {
             a: {
-              color: theme('--color-pink-500'),
+              color: theme('--color-primary-500'),
               '&:hover': {
                 color: theme('--color-primary-400'),
               },
