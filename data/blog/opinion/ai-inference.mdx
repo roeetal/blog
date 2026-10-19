@@ -1,0 +1,75 @@
+---
+title: AI Inference
+date: 2024-12-21
+tags:
+  - AI
+draft: true
+summary:
+layout: PostSimple
+bibliography: references-data.bib
+---
+agentic inference
+task latency = tokens_needed(model) / per-request tokens/sec(stack)
+task cost = tokens_needed(model) × cost/token (stack)
+
+granted, productive unit of work(model capability)
+number of tokens (model)
+time (inference stack)
+
+activation: unit of computation
+cost per parameter
+cost per token
+time to decode token
+active parameters, total parameters
+
+currently
+labs utilizing gpus for training
+labs + services maxing out gpus for cost-efficient inference even if per request latency isnt optimal
+
+as models get better, will they need to generate the same, more, less tokens to successfully complete a productive unit of work / task?
+as models get better, will they get bigger (more parameters), and what will the architectures look like (more sparsity, global KV cache, attention optimizations)?
+will inference workloads tend towards longer context, intermittence with tool calling and human inputs between decoding turns, and will the scale of inference demand proliferate with wider ai adoption?
+if inference is capacity constrained, is the premium for more inference/capacity different to premium for faster inference, does the former displace the latter?
+if competition drives costs down, where will labs find margin?
+
+per request speed vs. per request cost.
+former focuses on saturating compute and maximizing throughput, and developing model architecture and networking innovations (software) such as MoE, Speculative Decoding, Scheduling, Reduce etc. that minimize data transfer between memory and GPU compute for a fixed-sized large model. But speed is focused on reducing batch sizes, developing hardware that moves weights onto the compute chip to overcome memory compute data transfer bottleneck. 
+
+agentic workloads are intermittent, sequence of tool calls, human inputs etc. and can run over long and growing context. harness optimizations exist to adhere to model context limits and help optimize cost. lets not worry about them for now. the real focus should be on the hardware and software stacks that sit on it. do we expect models to grow larger? will model architectures instead focus on optimizations that minimize effective weights like sparsity etc. that render growth not such an issue. does model growth impact gpu vs. wse differently. 
+
+since training is done on GPUs, and training is expensive and slow, and the goal for labs is to optimize opex as models get larger, will labs continue focus on model architectures and software stacks that allow ever growing models to run "cheaply" and efficiently on GPU. Even if thats the case, does the WSE moat still exist for low latency use-cases, or does that moat only shrink as bigger models get more expensive to run. as models scale, wses pipeline and get expensive and latency stacks proportionately as activations must flow through the network. on gpu does latency get even worse due to multi-node network synchronization costs that grow with network size? if thats the case then wse still has a market.
+
+if autonomous agentic workloads proliferate, or require low latency for humans in the loop, a growing portion of agentic inference might require fast inference despite the costs. 
+
+gpu: assume ~100% throughput
+inference tokens / second -> gpu amortized cost / s
+therefore, for gpu inference, you want to maximize tokens per second
+gpu economics optimize throughput while agentic applications demand low latency time to last token. 
+but task time also important. task completion/success is one important user experience, but so is the speed at which that happens at. 
+scheduling comes into play. this relates to the inference stack.
+
+
+gpu economics are misaligned with agent economics
+gpu is memory-bandwidth bound
+model weights stored in HBM and need to move between memory and GPU for each inference batch. because that process only happens once, to optimize throughput you basically optimize the batch size subject to memory constraints.
+typical transformer has layers of attention and linear layers. prefill can process each token in parallel across each layer. token generation happens autoregressively, one token at a time. for each token and layer, model weights loaded from hbm to gpu, matrix multiplication happens across the batch, results, kv cache etc. stored in memory. process repeats. how exactly model structure, batching, kv cache are processed depends on model architecture and stack details. for example specific kernels can allow specific parts of the model to be computed more efficiently on the specific hardware, but the general process is the same.
+
+agentic workloads are heavily inference focused, with asynchronous pauses in between (for tool calls, human input etc.). so scheduling is important. perhaps unless at scale where agentic workloads follow some reliable distribution and can be schedules well at the service boundary. may use cases might want low latency real time interactivity, which is where the gpu value proposition becomes challenged. 
+
+on important part of the batching is at the service boundary, serving many requests, you can batch them in real time, continuously, and process tokens of each request in batches, serving requests as they come. 
+
+at scale, lets assume scheduling is solved and requests, even irregular agentic requests, can be batched efficiently. is the cost vs. request speed still material?
+
+gpu economics:
+maximizing throughput -> amortize cost of gpu over as many tokens as possible, which means the batch of the group of requests can cost optimally to process. it doesnt say anything about how fast a single request is/can be processed. that depends on the size of the request or how much tokens to generate.
+
+alternative to gpu is specialized hardware like cerebras chip WSE, which stores model weights in SRAM which can quickly move between memory and GPU. i guess the irony is high bandwidth memory of gpu is no longer high? sram is expensive though so cost per token is higher assuming similar throughput to GPU. 
+
+wse cost per token is basically linear with model capacity because larger models use more wafers in a pipeline. do we expect models to continue scaling? architecture innovations like MoE, KV cache optimization, quantization etc. aim to reduce the amount of bytes that need to transfer between memory and gpu. MoE in particular takes advantage of sparsity so not all model weights need to be loaded for a single forward pass.
+
+what is wse answer to architecture innovations and sparsity. storing model parameters for a decode step that are not used is a waste. will a software layer on top allow experts to move on and off wafers so less wafers are used for inference? or perhaps the non-expert parts of the model can be duplicated, essentially supporting more than one effective model with fewer than nx wafer-model pipelines?
+
+long context? deepseek v4.1 global kv cache? -> less bytes per token -> allows for longer context.
+
+
+

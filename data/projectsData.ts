@@ -7,10 +7,16 @@ interface Project {
 
 const projectsData: Project[] = [
   {
+    title: 'reasoning with memory',
+    description: `Another RL technique that helps agents actively maintain memory and context on multi-hop reasoning tasks.`,
+    imgSrc: '/static/images/memory.png',
+    href: 'https://aclanthology.org/2026.findings-acl.1834/',
+  },
+  {
     title: 'in-context learning text-to-sql',
     description: `In this paper, we look at how in-context learning can improve the state-of-the-art performance of LLMs on the text-to-sql task.`,
     imgSrc: '/static/images/marlo.png',
-    href: '/blog/marlo',
+    href: '/blog/projects-and-papers/marlo',
   },
   {
     title: 'predicting aortic valve stenosis',
@@ -29,7 +35,7 @@ const projectsData: Project[] = [
     description: `I created a bot to find a bike during COVID, which was not easy because of supply-chain issues.
     The story, and link to repo, is in the post.`,
     imgSrc: '/static/images/tessa.jpg',
-    href: '/blog/tessa',
+    href: '/blog/projects-and-papers/tessa',
   },
   {
     title: 'neural network robustness certification',
